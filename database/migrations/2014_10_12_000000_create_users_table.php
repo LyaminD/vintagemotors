@@ -18,17 +18,14 @@ class CreateUsersTable extends Migration
             $table->string('nom',25);
             $table->string('prenom',25);
             $table->string('email',40)->unique();
+            $table->unsignedBigInteger('role_id')->default(1);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password',255);
-            
             $table->rememberToken();
             $table->timestamps();
             $table->engine = 'InnoDB';
 
-            $table->foreignId('role_id')->constrained()->default(1);
-        //      Les deux lignes commentées sont égales a la seule ligne du dessus.
-        //    $table->unsignedBigInteger('role_id')->default(1);
-        //    $table->foreign('role_id')->references('id')->on('roles');
+             $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 

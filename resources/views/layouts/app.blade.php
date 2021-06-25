@@ -60,7 +60,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right px-5 justify-content-center" aria-labelledby="navbarDropdown">
-                            
+
                                 <a href="{{ route('editaccount') }}" class="mx-3 text-reset">
                                     Modifier mes informations
                                 </a></br>
@@ -80,7 +80,6 @@
                         @endguest
                     </ul>
                 </div>
-                <!-- Search widget-->
             </div>
         </nav>
         <main class="py-4 p-5">
@@ -102,18 +101,17 @@
             @yield('content')
         </main>
     </div>
-    <footer class="bg-light text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: white;">
-            <h6 class="text-dark">© 2021 Copyright: VintageMotors By DIAFAT Lyamin</h6>
-            <ul>
-                <li class="text-primary d-inline mx-1"><i class="fab fa-facebook-square fa-3x"></i></li>
-                <li class="text-primary d-inline mx-1"><i class="fab fa-twitter-square fa-3x"></i></li>
-                <li class="text-warning d-inline mx-1"><i class="fab fa-github fa-3x"></i></li>
-                <li class="text-danger d-inline mx-1"><i class="fab fa-youtube fa-3x"></i></li>
-            </ul>
-        </div>
-    </footer>
-    </footer>
 </body>
+<footer class="bg-light text-center text-lg-start mt-5">
+    <div class="text-center p-3" style="background-color: white;">
+        <h6 class="text-dark">© 2021 Copyright: VintageMotors By DIAFAT Lyamin</h6>
+        <ul>
+            <li class="text-primary d-inline mx-1"><i class="fab fa-facebook-square fa-3x"></i></li>
+            <li class="text-primary d-inline mx-1"><i class="fab fa-twitter-square fa-3x"></i></li>
+            <li class="text-warning d-inline mx-1"><i class="fab fa-github fa-3x"></i></li>
+            <li class="text-danger d-inline mx-1"><i class="fab fa-youtube fa-3x"></i></li>
+        </ul>
+    </div>
+</footer>
 
 </html>

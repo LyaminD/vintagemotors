@@ -15,17 +15,174 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 30; $i++) {
-            DB::table('articles')->insert([
-                'nom' => 'Produit ' . ($i+1),
-                'description' => Str::random(50),
-                'description_detaillee' => Str::random(100),
-                'image' => 'logo.png',
-                'gamme_id' => 1,
-                'prix' => mt_rand(5, 1000),
-                'stock' => 50,
-                'note' => 4.5,
-            ]);
-        }
+
+        DB::table('articles')->insert([
+            'nom' => 'Custom',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'custom1.jpg',
+            'gamme_id' => 3,
+            'prix' => 9850,
+            'stock' => 10,
+            'note' => 3.5,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'Custom',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'custom2.jpg',
+            'gamme_id' => 3,
+            'prix' => 11450,
+            'stock' => 10,
+            'note' => 4.5,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'Custom',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'custom3.jpg',
+            'gamme_id' => 3,
+            'prix' => 12589,
+            'stock' => 10,
+            'note' => 4.5,
+
+        ]);
+
+        DB::table('articles')->insert([
+            'nom' => 'BMW',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto1bmw.jpg',
+            'gamme_id' => 1,
+            'prix' => 8963,
+            'stock' => 10,
+            'note' => 4,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'BMW',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto8bmw.jpg',
+            'gamme_id' => 1,
+            'prix' => 11489,
+            'stock' => 10,
+            'note' => 4,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'BMW',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto9bmw.jpg',
+            'gamme_id' => 1,
+            'prix' => 12565,
+            'stock' => 10,
+            'note' => 4.5,
+
+        ]);
+
+        DB::table('articles')->insert([
+            'nom' => 'ratbike',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'ratbike1.jpg',
+            'gamme_id' => 5,
+            'prix' => 8569,
+            'stock' => 10,
+            'note' => 3.5,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'ratebike',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'ratbike2.jpg',
+            'gamme_id' => 5,
+            'prix' => 10369,
+            'stock' => 10,
+            'note' => 4,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'ratebike',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(50),
+            'image' => 'ratbike3.jpg',
+            'gamme_id' => 5,
+            'prix' => 11478,
+            'stock' => 10,
+            'note' => 4.5,
+
+        ]);
+
+        DB::table('articles')->insert([
+            'nom' => 'Cadillac',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto4cadillac.jpg',
+            'gamme_id' => 2,
+            'prix' => 9879,
+            'stock' => 10,
+            'note' => 3,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'Cadillac',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto6cadillac.jpg',
+            'gamme_id' => 2,
+            'prix' => 11456,
+            'stock' => 10,
+            'note' => 4,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'Cadillac',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto7cadillac.jpg',
+            'gamme_id' => 2,
+            'prix' => 13204,
+            'stock' => 10,
+            'note' => 4.5,
+
+        ]);
+
+        DB::table('articles')->insert([
+            'nom' => 'Harley',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto3harley.jpg',
+            'gamme_id' => 4,
+            'prix' => 10456,
+            'stock' => 10,
+            'note' => 3,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'Harley',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto2harley.jpg',
+            'gamme_id' => 4,
+            'prix' => 11456,
+            'stock' => 10,
+            'note' => 4,
+
+        ]);
+        DB::table('articles')->insert([
+            'nom' => 'Harley',
+            'description' => Str::random(10),
+            'description_detaillee' => Str::random(100),
+            'image' => 'moto5harley.jpg',
+            'gamme_id' => 4,
+            'prix' => 12365,
+            'stock' => 10,
+            'note' => 4.5,
+        ]);
     }
 }

@@ -37,6 +37,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    <a class="nav-link" href="{{ route('articles.index') }}">Catalogue</a>
+                    <a class="nav-link" href="{{ route('gammes.index') }}">Gammes</a>
+                    <a class="nav-link" href="{{ route('articles.classement')}}"> Classement des mieux notées</a>
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

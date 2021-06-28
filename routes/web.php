@@ -30,3 +30,12 @@ Route::post('/editaccount', [App\Http\Controllers\UserController::class, 'update
 /*------------------------ MODIFICATION DU MOT DE PASSE------------------------------------- */
 Route::get('/editpassword', [App\Http\Controllers\UserController::class, 'editpassword'])->name('editpassword');
 Route::post('/editpassword', [App\Http\Controllers\UserController::class, 'updatepassword'])->name('updatepassword');
+
+/*------------------------ AFFICHAGE DES ARTICLE  ---------------------------- */
+Route::resource('/articles', App\Http\Controllers\ArticleController::class);
+
+/*------------------------ AFFICHAGE DES ARTICLE TRIER PAR GAMMES ---------------------------- */
+Route::resource('/gammes', App\Http\Controllers\GammeController::class);
+
+/*------------------------ AFFICHAGE DES ARTICLE TRIER PAR NOTE ---------------------------- */
+Route::get('/classement', [App\Http\Controllers\ArticleController::class, 'classement'])->name('articles.classement');

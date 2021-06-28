@@ -15,6 +15,24 @@ class GammeSeeder extends Seeder
     public function run()
     {
         DB::table('gammes')->insert([
-            'nom'=>'gamme1']);
+            'nom' => 'BMW',
+        ]);
+
+        DB::table('gammes')->insert([
+            'nom' => 'Cadillac',
+        ]);
+
+        DB::table('gammes')->insert([
+            'nom' => 'Custom',
+        ]);
+
+        DB::table('gammes')->insert([
+            'nom' => 'Harley',
+        ]);
+
+        DB::table('gammes')->insert([
+            'nom' => 'Ratbike',
+        ]);
+
     }
 }

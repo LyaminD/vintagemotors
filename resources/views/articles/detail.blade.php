@@ -3,7 +3,7 @@
 @section('content')
 
 <body>
-    <div class="card" style="width: 18rem;">
+    <div class="card my-5" style="width: 18rem;">
         <img src="{{ asset("images/$article->image") }}" class="card-img-top" alt="moto">
         <div class="card-body">
             <h5 class="card-title"> {{ $article->nom}}</h5>

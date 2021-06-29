@@ -5,7 +5,7 @@
     @if (session()->has('message'))
     <div class="alert alert-info">{{ session('message') }}</div>
     @endif
-
+<!------------------------------- Affichage et modification du panier --------------------------------------------->
     @if (session()->has("panier"))
     <h3>Mon panier</h3>
     <div class="table-responsive shadow mb-3">
@@ -32,6 +32,7 @@
 
                 <!-- On incrémente le total général par le total de chaque produit du panier -->
                 @php $total += $item['prix'] * $item['quantite'] @endphp
+                <!-- On incrémente la quantité par le montant des frais de port pour chaque produits du panier -->
                 @php $totalfraisdeport += 100 * $item['quantite'] @endphp
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -43,7 +44,7 @@
                         <!-- Le formulaire de mise à jour de la quantité -->
                         <form method="POST" action="{{ route('panier.add', $key) }}" class="form-inline d-inline-block">
                             {{ csrf_field() }}
-                            <input type="number" name="quantity" placeholder="Quantité" value="{{ $item['quantite'] }}" class="form-control mr-2" style="width: 80px">
+                            <input type="number" name="quantite" placeholder="Quantité" value="{{ $item['quantite'] }}" class="form-control mr-2" style="width: 80px">
                             <input type="submit" class="btn btn-primary" value="Actualiser" />
                         </form>
                     </td>
@@ -67,14 +68,14 @@
                 <tr colspan="2">
                     <td colspan="4">Frais de port = 100 euros / motos</td>
                     <td colspan="2">
-                        <!-- On affiche total général -->
+                        <!-- On affiche total frais de port -->
                         <strong>{{ $totalfraisdeport }} Euros</strong>
                     </td>
                 </tr>
                 <tr colspan="2">
                     <td colspan="4">Total général avec frais de ports</td>
                     <td colspan="2">
-                        <!-- On affiche total général -->
+                        <!-- On affiche total général avec frais de ports-->
                         <strong>{{ $total + $totalfraisdeport }} Euros </strong>
                     </td>
                 </tr>
@@ -90,7 +91,7 @@
     <div class="alert alert-info">Aucun produit au panier</div>
     @endif
 </div>
-
+<!------------------------------- Choix adresse de livraison --------------------------------------------->
 <h3>Choisissez votre adresse de livraison</h3>
 
 <div class="row my-5">
@@ -123,7 +124,7 @@
         </div>
     </div>
 </div>
-
+<!------------------------------- Choix mode de livraison --------------------------------------------->
 <h3>Choisissez votre mode de livraison</h3>
 
 <div class="row my-5">
@@ -131,7 +132,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Mode de livraison en agence</h5>
-                <p class="card-text">Livraison en agence ou vous voulez en France.</p>
+                <p class="card-text">Livraison en agence partout ou vous voulez en France.</p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                     <label class="form-check-label" for="flexCheckChecked">
@@ -156,7 +157,7 @@
         </div>
     </div>
 </div>
-
+<!------------------------------- Règlement + validation commande --------------------------------------------->
 <div class="col d-flex justify-content-center">
     <div class="payment-info">
         <div class="d-flex justify-content-between align-items-center"><span>Carte de crédit</span></div><span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>

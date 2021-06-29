@@ -42,6 +42,6 @@ Route::get('/classement', [App\Http\Controllers\ArticleController::class, 'class
 
 // Les routes de gestion du panier
 Route::get('panier', [App\Http\Controllers\PanierController::class, 'show'])->name('panier.show');
-Route::post('panier/add/{product}',[App\Http\Controllers\PanierController::class, 'add'])->name('panier.add');
-Route::get('panier/remove/{product}',[App\Http\Controllers\PanierController::class, 'remove'])->name('panier.remove');
+Route::post('panier/add/{article}',[App\Http\Controllers\PanierController::class, 'add'])->name('panier.add');
+Route::get('panier/remove/{article}',[App\Http\Controllers\PanierController::class, 'remove'])->name('panier.remove');
 Route::get('panier/empty',[App\Http\Controllers\PanierController::class, 'empty'])->name('panier.empty');

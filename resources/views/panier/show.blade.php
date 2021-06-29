@@ -25,19 +25,19 @@
                 @php $total = 0 @endphp
 
                 <!-- On parcourt les produits du panier en session : session('panier') -->
-                @foreach (session("panier") as $key => $item)
+                @foreach (session("panier") as $article => $item)
 
                 <!-- On incrémente le total général par le total de chaque produit du panier -->
                 @php $total += $item['prix'] * $item['quantite'] @endphp
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                        <strong><a href="{{ route('product.show', $key) }}" title="Afficher le produit">{{ $item['nom'] }}</a></strong>
+                        <strong><a href="{{ route('articles.show', $article) }}" title="Afficher le produit">{{ $item['nom'] }}</a></strong>
                     </td>
                     <td>{{ $item['prix'] }} $</td>
                     <td>
                         <!-- Le formulaire de mise à jour de la quantité -->
-                        <form method="POST" action="{{ route('panier.add', $key) }}" class="form-inline d-inline-block">
+                        <form method="POST" action="{{ route('panier.add', $article) }}" class="form-inline d-inline-block">
                             {{ csrf_field() }}
                             <input type="number" name="quantity" placeholder="Quantité ?" value="{{ $item['quantite'] }}" class="form-control mr-2" style="width: 80px">
                             <input type="submit" class="btn btn-primary" value="Actualiser" />
@@ -49,7 +49,7 @@
                     </td>
                     <td>
                         <!-- Le Lien pour retirer un produit du panier -->
-                        <a href="{{ route('panier.remove', $key) }}" class="btn btn-outline-danger" title="Retirer le produit du panier">Retirer</a>
+                        <a href="{{ route('panier.remove', $article) }}" class="btn btn-outline-danger" title="Retirer le produit du panier">Retirer</a>
                     </td>
                 </tr>
                 @endforeach

@@ -39,3 +39,9 @@ Route::resource('/gammes', App\Http\Controllers\GammeController::class);
 
 /*------------------------ AFFICHAGE DES ARTICLE TRIER PAR NOTE ---------------------------- */
 Route::get('/classement', [App\Http\Controllers\ArticleController::class, 'classement'])->name('articles.classement');
+
+// Les routes de gestion du panier
+Route::get('panier', [App\Http\Controllers\PanierController::class, 'show'])->name('panier.show');
+Route::post('panier/add/{product}',[App\Http\Controllers\PanierController::class, 'add'])->name('panier.add');
+Route::get('panier/remove/{product}',[App\Http\Controllers\PanierController::class, 'remove'])->name('panier.remove');
+Route::get('panier/empty',[App\Http\Controllers\PanierController::class, 'empty'])->name('panier.empty');

@@ -15,8 +15,6 @@
             <a href="{{ route('articles.show',$article)}}" class="btn btn-primary">Plus de détails</a>
            <!-- <a href="{{ route('panier.add',$article)}}" class="btn btn-primary">Acheter</a>-->
 
-
-
         <form  action="{{ route('panier.add',$article)}}" method="post">
         @CSRF
       <input type="number" name="quantite">

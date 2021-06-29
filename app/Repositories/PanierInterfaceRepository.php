@@ -10,10 +10,10 @@ interface PanierInterfaceRepository {
 	public function show();
 
 	// Ajouter un produit au panier
-	public function add(Article $product, $quantity);
+	public function add(Article $article, $quantity);
 
 	// Retirer un produit du panier
-	public function remove(Article $product);
+	public function remove(Article $article);
 
 	// Vider le panier
 	public function empty();

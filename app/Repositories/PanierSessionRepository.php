@@ -12,24 +12,29 @@ class PanierSessionRepository implements PanierInterfaceRepository  {
 	}
 
 	# Ajouter/Mettre à jour un produit du panier
-	public function add (Article $product, $quantite) {		
+	public function add (Article $article, $quantite) {		
 		$panier = session()->get("panier"); // On récupère le panier en session
-
+		
 		// Les informations du produit à ajouter
-		$product_details = [
-			'nom' => $product->nom,
-			'prix' => $product->prix,
+		$article_details = [
+			'nom' => $article->nom,
+			'id' => $article->id,
+			'description' => $article->description,
+			'description_detaillee' => $article->description_detaillee,
+			'stock' => $article->stock,
+			'note' => $article->note,
+			'prix' => $article->prix,
 			'quantite' => $quantite
 		];
 		
-		$panier[$product->id] = $product_details; // On ajoute ou on met à jour le produit au panier
+		$panier[$article->id] = $article_details; // On ajoute ou on met à jour le produit au panier
 		session()->put("panier", $panier); // On enregistre le panier
 	}
 
 	# Retirer un produit du panier
-	public function remove (Article $product) {
+	public function remove (Article $article) {
 		$panier = session()->get("panier"); // On récupère le panier en session
-		unset($panier[$product->id]); // On supprime le produit du tableau $basket
+		unset($panier[$article->id]); // On supprime le produit du tableau $basket
 		session()->put("panier", $panier); // On enregistre le panier
 	}
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Commande;
+use App\Models\Article;
 
 class CommandeController extends Controller
 {
@@ -34,19 +36,30 @@ class CommandeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'content' => 'required', 'string', 'min:5', 'max:255',
-        ]);
-
-        $user_id = Auth::user()->id;
+        $user_id = auth()->user()->id;
         $commande = new Commande;
         $commande->user_id = $user_id;
-        $commande->numero = $request->input('numero');
+        $commande->numero = rand(1000000, 9999999);
         $commande->prix = $request->input('prix');
         $commande->save();
 
-        return redirect()->route('validation')->with('message', 'Commande validée et payée avec succès');
+        foreach (session('panier') as $article) {
+            $commande->articles()->attach(
+                $article['id'],
+                ['quantite' => $article['quantite']]
+            );
+
+            $articleInDatabase = Article::find($article['id']);
+            $articleInDatabase->stock -= $article['quantite'];
+            $articleInDatabase->save();
+        }
+
+        return view('panier.validation')->with('message', 'Commande validée et payée avec succès');
     }
+
+    public function validation()
+    {
+        return view('panier.validation');
     }
 
     /**
@@ -55,9 +68,10 @@ class CommandeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Commande $commande)
     {
-        //
+        $commande->load('articles');
+        return view('user.detailcommande',compact('commande'));    
     }
 
     /**

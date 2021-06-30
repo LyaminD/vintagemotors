@@ -46,5 +46,5 @@ Route::get('panier/remove/{article}',[App\Http\Controllers\PanierController::cla
 Route::get('panier/empty',[App\Http\Controllers\PanierController::class, 'empty'])->name('panier.empty');
 
 /*------------------------------------ GESTION DES COMMANDES ---------------------------------------- */
-Route::resources('commande',App\Http\Controllers\CommandeController::class);
+Route::resource('commande',App\Http\Controllers\CommandeController::class);
 

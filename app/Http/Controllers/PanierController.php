@@ -56,6 +56,6 @@ class PanierController extends Controller
         $this->panierRepository->empty();
 
         // Redirection vers le panier
-        return back()->withMessage("Panier vidé");
+        return redirect()->route('compte');
     }
 }

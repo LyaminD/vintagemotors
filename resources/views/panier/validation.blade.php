@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Commande validée !</h5>
+<div class="container"  >
+    <div class="">
+        <div class="">
+            <div class="">
+                <h5 class="" id="">Commande validée !</h5>
             </div>
-            <div class="modal-body">
+            <div class="">
                 <p>Félicitation votre commande a été validée !</p>
                 <p>Expédition de la commande prévue le <?php setlocale(LC_TIME, 'fr_FR.utf8', 'fra');
                                                         $date = date("Y-m-d");
@@ -17,11 +17,8 @@
                                                             echo strftime("%A %d %B %Y", strtotime($date . " + 25 days")); ?> !</p>
                 <p>Merci pour votre achat et à bientôt !</p>
             </div>
-            <div class="modal-footer">
-                <form action="compte.php" method="post" class="mb-2 mt-2">
-                    <input type="hidden" name="orderValidated">
-                    <input type="submit" value="Retour sur mon compte" class="btn btn-secondary">
-                </form>
+            <div class="">
+             <a href="{{route('panier.empty')}}"class="btn btn-primary">Retour sur mon compte</a>    
             </div>
         </div>
     </div>

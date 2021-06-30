@@ -21,6 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user->load('commandes');
         return view('user.compte', ['user' => $user]);
     }
 

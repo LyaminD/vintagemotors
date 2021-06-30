@@ -18,9 +18,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+/*------------------------ GESTION ACCEUIL ET PAGE DE COMPTE CLIENT  ---------------------------- */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/compte', [App\Http\Controllers\UserController::class, 'index'])->name('compte');
 
 /*------------------------ MODIFICATION DES INFOS DU COMPTE  ---------------------------- */
@@ -34,14 +33,18 @@ Route::post('/editpassword', [App\Http\Controllers\UserController::class, 'updat
 /*------------------------ AFFICHAGE DES ARTICLE  ---------------------------- */
 Route::resource('/articles', App\Http\Controllers\ArticleController::class);
 
-/*------------------------ AFFICHAGE DES ARTICLE TRIER PAR GAMMES ---------------------------- */
+/*------------------------ AFFICHAGE DES ARTICLES TRIER PAR GAMMES ---------------------------- */
 Route::resource('/gammes', App\Http\Controllers\GammeController::class);
 
-/*------------------------ AFFICHAGE DES ARTICLE TRIER PAR NOTE ---------------------------- */
+/*------------------------ AFFICHAGE DES ARTICLES TRIER PAR NOTE ---------------------------- */
 Route::get('/classement', [App\Http\Controllers\ArticleController::class, 'classement'])->name('articles.classement');
 
-// Les routes de gestion du panier
+/*------------------------------------ GESTION DU PANIER ---------------------------------------- */
 Route::get('panier', [App\Http\Controllers\PanierController::class, 'show'])->name('panier.show');
 Route::post('panier/add/{article}',[App\Http\Controllers\PanierController::class, 'add'])->name('panier.add');
 Route::get('panier/remove/{article}',[App\Http\Controllers\PanierController::class, 'remove'])->name('panier.remove');
 Route::get('panier/empty',[App\Http\Controllers\PanierController::class, 'empty'])->name('panier.empty');
+
+/*------------------------------------ GESTION DES COMMANDES ---------------------------------------- */
+Route::resources('commande',App\Http\Controllers\CommandeController::class);
+

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2 class="text-center mt-3">Bonjour {{$user->prenom}}, modifie ici tes informations !</h2>
+<h3 class="text-center mt-3">Bonjour {{$user->prenom}}, modifie ici tes informations !</h3>
 
 <div class="container">
     <div class="row justify-content-center">

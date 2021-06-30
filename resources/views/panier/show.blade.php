@@ -5,7 +5,7 @@
     @if (session()->has('message'))
     <div class="alert alert-info">{{ session('message') }}</div>
     @endif
-<!------------------------------- Affichage et modification du panier --------------------------------------------->
+    <!------------------------------- Affichage et modification du panier --------------------------------------------->
     @if (session()->has("panier"))
     <h3>Mon panier</h3>
     <div class="table-responsive shadow mb-3">
@@ -23,7 +23,7 @@
             <tbody>
                 <!-- Initialisation du total général à 0 -->
                 @php
-                $total = 0 ;
+                $total = 0;
                 $totalfraisdeport = 0;
                 @endphp
 
@@ -158,23 +158,53 @@
     </div>
 </div>
 <!------------------------------- Règlement + validation commande --------------------------------------------->
-<div class="col d-flex justify-content-center">
-    <div class="payment-info">
-        <div class="d-flex justify-content-between align-items-center"><span>Carte de crédit</span></div><span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
-        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
-        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
-        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
-        <div><label class="credit-card-label">Nom du titulaire</label><input type="text" class="form-control credit-inputs" placeholder="Nom / Prénom"></div>
-        <div><label class="credit-card-label">Numéro de carte</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
+<div class="container">
+    <div class="page-header text-center">
+        <h1>Réglement de la commande</h1>
+    </div>
+    <!-- Credit Card Payment Form - START -->
+    <div class="container">
         <div class="row">
-            <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
-            <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="000"></div>
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h3 class="text-center">Détails paiement</h3>
+                            <div class="inlineimage"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Paypal-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png"> </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group"> <label>Numéro de carte</label>
+                                        <div class="input-group"> <input type="tel" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7 col-md-7">
+                                    <div class="form-group"> <label><span class="hidden-xs">date d'éxpiration</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
+                                </div>
+                                <div class="col-xs-5 col-md-5 pull-right">
+                                    <div class="form-group"> <label>CV CODE</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group"> <label>Titulaire de la carte</label> <input type="text" class="form-control" placeholder="Card Owner Name" /> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-12"> <button class="btn btn-success btn-lg btn-block">Confirmer le paiement et la commande</button> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <hr class="line">
-        <div class="d-flex justify-content-between information"><span>Total</span><span>{{ $total }} Euros</span></div>
-        <div class="d-flex justify-content-between information"><span>Frais de port</span><span>{{ $totalfraisdeport }} Euros</span></div>
-        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>{{ $total + $totalfraisdeport }} Euros</span></div>
-        <button class="btn btn-success btn-block d-flex justify-content-between mt-3" type="button"><span>{{ $total + $totalfraisdeport }} Euros</span><span>Validez votre commande !<i class="fa fa-long-arrow-right ml-1"></i></span></button>
     </div>
 </div>
 @endsection

@@ -13,7 +13,6 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-
 <body>
     <div id="loginBackground">
 
@@ -24,12 +23,47 @@
             </div>
         </div>
     </div>
+    <!----------------------------------------- PROMOTIONS ------------------------------------------------------------------>
+    <h3>Découvrez nos promos en cours !</h3>
+    <h3>{{$promoActuel->nom}}</h3>
 
-
-    <div>
-        <h3>Découvrez nos promos en cours !</h3>
+    @foreach ($promoActuel->articles as $article)
+    <div class="container mydiv bg-white">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- bbb_deals -->
+                <div class="bbb_deals">
+                    <div class="ribbon ribbon-top-right"><span>- {{$promoActuel->reduction}} %</span></div>
+                    <div class="bbb_deals_title">{{$promoActuel->nom}}</div>
+                    <div class="bbb_deals_slider_container">
+                        <div class=" bbb_deals_item">
+                            <div class="bbb_deals_image"><img src="{{ asset("images/$article->image") }}" alt=""></div>
+                            <div class="bbb_deals_content">
+                                <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                    <div class="bbb_deals_item_category"><a href="#">Moto</a></div>
+                                    <div class="bbb_deals_item_price_a ml-auto"><strike>{{$article->prix}} Euros</strike></div>
+                                </div>
+                                <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                    <div class="bbb_deals_item_name">{{$article->nom}}</div>
+                                    <div class="bbb_deals_item_price ml-auto">{{$article->prix - ($article->prix *$promoActuel->reduction / 100)}} Euros !!!</div>
+                                </div>
+                                <div class="available">
+                                    <div class="available_line d-flex flex-row justify-content-start">
+                                        <div class="available_title">Stock: <span>{{$article->stock}}</span></div>
+                                    </div>
+                                    <div class="available_bar"><span style="width:17%"></span></div>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm">Achetez</button>
+                                <button type="button" class="btn btn-secondary btn-sm">Plus de détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
+    @endforeach
+<!----------------------------------------- CAROUSEL ------------------------------------------------------------------>
     <div>
         <h3>Showroom de nos plus belles motos !</h3>
         <div class="container carousel">
@@ -62,25 +96,20 @@
             </div>
         </div>
     </div>
-
-
-
+<!----------------------------------------- LES MIEUX NOTEES ------------------------------------------------------------------>
     <div>
         <h3>Les motos les mieux notées !</h3>
+        <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
-
 </html>
 @endsection

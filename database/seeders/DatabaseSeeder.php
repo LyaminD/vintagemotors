@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         RoleSeeder::class,
         GammeSeeder::class,
         ArticleSeeder::class,
+        PromotionSeeder::class,
+        PromotionArticlesSeeder::class
     ]);
     }
 }

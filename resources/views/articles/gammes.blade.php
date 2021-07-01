@@ -3,8 +3,9 @@
 @section('content')
 
 <body>
+
     @foreach ($gammes as $gamme)
-    <div>
+    
     <h3>Nos gammes de motos !</h3>
 
         <h3>{{ $gamme->nom}}</h3>

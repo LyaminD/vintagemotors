@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Promotion;
+use App\Models\Note;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,20 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $now = date('Y-m-d');
+        $promoActuel=Promotion::with(['articles' => function ($query) {
+            $query->take(3);
+        }])
+        ->whereDate('date_debut','<=', $now)
+        ->whereDate('date_fin','>=', $now)
+        ->get();
+        $promoActuel = $promoActuel[0];
+        return view('welcome',compact('promoActuel'));
+
+
     }
+
+    
+
 }

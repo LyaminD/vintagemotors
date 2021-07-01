@@ -13,13 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 /*------------------------ GESTION ACCEUIL ET PAGE DE COMPTE CLIENT  ---------------------------- */
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/compte', [App\Http\Controllers\UserController::class, 'index'])->name('compte');
 
 /*------------------------ MODIFICATION DES INFOS DU COMPTE  ---------------------------- */
@@ -47,4 +43,8 @@ Route::get('panier/empty',[App\Http\Controllers\PanierController::class, 'empty'
 
 /*------------------------------------ GESTION DES COMMANDES ---------------------------------------- */
 Route::resource('commande',App\Http\Controllers\CommandeController::class);
+
+/*------------------------------------ AFFICHAGE DES PROMOTIONS ---------------------------------------- */
+Route::resource('promotion',App\Http\Controllers\PromotionController::class);
+
 

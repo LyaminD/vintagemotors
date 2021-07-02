@@ -41,18 +41,16 @@
                         <a class="nav-link" href="{{ route('gammes.index') }}">Gammes</a>
                         <a class="nav-link" href="{{ route('promotion.index') }}">Promotions</a>
                         <a class="nav-link" href="{{ route('articles.classement')}}"> Classement des mieux notées</a>
-                        @admin
-                        @if (Route::has('admin'))
-                        <a class="nav-link" href="{{ route('admin')}}">Administration - Gestion des articles</a>
+                        <a class="nav-link" href="{{ route('admin')}}">Administration</a>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> </a>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre></a>
                             <div class="dropdown-menu dropdown-menu-right px-5 justify-content-center" aria-labelledby="navbarDropdown">
-                                <a href="" class="mx-3 text-reset">Gestion des promotions</a>
-                                <a href="" class="mx-3 text-reset">Gestion des clients</a>
+                                <a href="{{ route('adminarticle') }}" class="mx-3 text-reset">Gestion des articles</a>
+                                <a href="{{ route('adminpromo') }}" class="mx-3 text-reset">Gestion des promotions</a>
+                                <a href="{{ route('admingamme') }}" class="mx-3 text-reset">Gestion des gammes</a>
+                                <a href="{{ route('adminclient') }}" class="mx-3 text-reset">Gestion des clients</a>
                             </div>
                         </li>
-                        @endif
-                        @endadmin
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

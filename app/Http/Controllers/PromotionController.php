@@ -17,6 +17,11 @@ class PromotionController extends Controller
        $promotions=Promotion::with('articles')->get();
        return view('articles.promotions',compact('promotions'));
     }
+    public function promotion()
+    {
+       $promotions=Promotion::all();
+       return view('admin.adminpromo',compact('promotions'));
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -14,9 +14,16 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles=Article::all();
+       $articles=Article::all();
        return view('articles.articles',compact('articles'));
     }
+
+    public function article()
+    {
+       $articles=Article::all();
+       return view('admin.adminarticle',compact('articles'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +43,29 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate( [
+            'nom' => ['required', 'string', 'max:100'],
+            'gamme_id' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:100'],
+            'description_detaillee' => ['required', 'string', 'max:500'],
+            'image' => ['required', 'string', 'max:255'],
+            'prix' => ['required', 'string', 'max:255'],
+            'stock' => ['required', 'string', 'max:255'],
+            
+            ]);
+
+  //      $article = new Article;
+   //         $article->nom = $request->input('nom');
+   //         $article->gamme_id = $request->input('gamme_id');
+    //        $article->description = $request->input('description');
+    //        $article->description_detaillee = $request->input('description_detaillee');
+    //        $article->image = $request->input('image');
+    //        $article->prix = $request->input('prix');
+    //        $article->stock = $request->input('stock');
+     //       $article->save(); 
+            Article::create($request->all());
+
+           return redirect()->route('admin')->with('message','Article ajouter en BDD');
     }
 
     public function classement()
@@ -62,9 +91,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($article)
     {
-        //
+        return view('admin.modifarticle', compact('article'));
     }
 
     /**
@@ -74,9 +103,22 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        //
+        $request->validate( [
+            'nom' => ['required', 'string', 'max:100'],
+            'gamme_id' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:100'],
+            'description_detaillee' => ['required', 'string', 'max:500'],
+            'image' => ['required', 'string', 'max:255'],
+            'prix' => ['required', 'string', 'max:255'],
+            'stock' => ['required', 'string', 'max:255'],
+            
+            ]);
+
+            Article::update($request->all());
+
+            return redirect()->route('admin')->with('message','Article modifier avec succès');
     }
 
     /**

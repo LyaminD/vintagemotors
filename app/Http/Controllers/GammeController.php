@@ -17,6 +17,11 @@ class GammeController extends Controller
         $gammes=Gamme::with('articles')->get();
         return view('articles.gammes',compact('gammes'));
     }
+    public function gamme()
+    {
+       $gammes=Gamme::all();
+       return view('admin.admingamme',compact('gammes'));
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -24,6 +24,11 @@ class UserController extends Controller
         $user->load('commandes');
         return view('user.compte', ['user' => $user]);
     }
+    public function user()
+    {
+       $users=User::all();
+       return view('admin.adminclient',compact('users'));
+    }
 
     /**
      * Show the form for creating a new resource.

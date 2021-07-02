@@ -37,9 +37,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    <a class="nav-link" href="{{ route('articles.index') }}">Catalogue</a>
-                    <a class="nav-link" href="{{ route('gammes.index') }}">Gammes</a>
-                    <a class="nav-link" href="{{ route('articles.classement')}}"> Classement des mieux notées</a>
+                        <a class="nav-link" href="{{ route('articles.index') }}">Catalogue</a>
+                        <a class="nav-link" href="{{ route('gammes.index') }}">Gammes</a>
+                        <a class="nav-link" href="{{ route('promotion.index') }}">Promotions</a>
+                        <a class="nav-link" href="{{ route('articles.classement')}}"> Classement des mieux notées</a>
+                        @admin
+                        @if (Route::has('admin'))
+                        <a class="nav-link" href="{{ route('admin')}}">Administration - Gestion des articles</a>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> </a>
+                            <div class="dropdown-menu dropdown-menu-right px-5 justify-content-center" aria-labelledby="navbarDropdown">
+                                <a href="" class="mx-3 text-reset">Gestion des promotions</a>
+                                <a href="" class="mx-3 text-reset">Gestion des clients</a>
+                            </div>
+                        </li>
+                        @endif
+                        @endadmin
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -65,7 +78,7 @@
                             <div class="dropdown-menu dropdown-menu-right px-5 justify-content-center" aria-labelledby="navbarDropdown">
 
                                 <a href="{{ route('editaccount') }}" class="mx-3 text-reset">Modifier mes informations</a></br>
-                                <a href="{{ route('editpassword') }}" class="mx-3 text-reset">  Modifier le mot de passe</a>
+                                <a href="{{ route('editpassword') }}" class="mx-3 text-reset"> Modifier le mot de passe</a>
                                 <a class="nav-link" href="{{ route('panier.show') }}">Panier</a>
                                 <a class="nav-link" href="{{ route('compte') }}">Mes commandes</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

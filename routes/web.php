@@ -48,3 +48,8 @@ Route::resource('commande',App\Http\Controllers\CommandeController::class);
 Route::resource('promotion',App\Http\Controllers\PromotionController::class);
 
 
+/*------------------------ GESTION ACCEUIL PANNEAU ADMIN  ---------------------------- */
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+
+/*--------------------------------------- UPLOAD IMAGES ---------------------------------------------- */
+Route::post('image-upload', [App\Http\Controllers\ImageUploadController::class, 'imageUploadPost' ])->name('image.upload.post');

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Promotion;
 
-class PromotionController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class PromotionController extends Controller
      */
     public function index()
     {
-       $promotions=Promotion::with('articles')->get();
-       return view('articles.promotions',compact('promotions'));
+        return view('admin.admin');
     }
 
     /**

@@ -34,10 +34,5 @@ class HomeController extends Controller
         ->get();
         $promoActuel = $promoActuel[0];
         return view('welcome',compact('promoActuel'));
-
-
     }
-
-    
-
 }

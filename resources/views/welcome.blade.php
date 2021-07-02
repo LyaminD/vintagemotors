@@ -25,11 +25,10 @@
     </div>
     <!----------------------------------------- PROMOTIONS ------------------------------------------------------------------>
     <h3>Découvrez nos promos en cours !</h3>
-    <h3>{{$promoActuel->nom}}</h3>
-
-    @foreach ($promoActuel->articles as $article)
-    <div class="container mydiv bg-white">
+    <h3>{{$promoActuel->nom}}</h3> <div class="container mydiv bg-white">
         <div class="row">
+    @foreach ($promoActuel->articles as $article)
+   
             <div class="col-md-4">
                 <!-- bbb_deals -->
                 <div class="bbb_deals">
@@ -37,7 +36,7 @@
                     <div class="bbb_deals_title">{{$promoActuel->nom}}</div>
                     <div class="bbb_deals_slider_container">
                         <div class=" bbb_deals_item">
-                            <div class="bbb_deals_image"><img src="{{ asset("images/$article->image") }}" alt=""></div>
+                            <div class="bbb_deals_image"><img src="{{ asset("images/$article->image") }}" alt="MotoEnPromo"></div>
                             <div class="bbb_deals_content">
                                 <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
                                     <div class="bbb_deals_item_category"><a href="#">Moto</a></div>
@@ -60,9 +59,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+     
+    @endforeach 
+      </div>
     </div>
-    @endforeach
 <!----------------------------------------- CAROUSEL ------------------------------------------------------------------>
     <div>
         <h3>Showroom de nos plus belles motos !</h3>

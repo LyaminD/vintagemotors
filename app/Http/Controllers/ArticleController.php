@@ -91,7 +91,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($article)
+    public function edit(Article $article)
     {
         return view('admin.modifarticle', compact('article'));
     }
@@ -116,9 +116,9 @@ class ArticleController extends Controller
             
             ]);
 
-            Article::update($request->all());
+            $article->update($request->all());
 
-            return redirect()->route('admin')->with('message','Article modifier avec succès');
+            return redirect()->route('adminarticle')->with('message','Article modifier avec succès');
     }
 
     /**

@@ -95,7 +95,7 @@
                                     <th>
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                                            <a href="{{route('modifarticle')}}"> <input type="button" value="Bouton"> </a>
+                                            <a href="{{route('modifarticle',$article)}}"> <input type="button" value="Bouton"> </a>
                                             <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
                                             <label class="btn btn-outline-danger" for="btnradio3">Supprimer l'article</label>
                                         </div>

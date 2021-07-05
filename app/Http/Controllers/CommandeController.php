@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Models\Commande;
 use App\Models\Article;
+use App\Models\User;
 
 class CommandeController extends Controller
 {
@@ -15,7 +17,9 @@ class CommandeController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $user->load('commandes');
+        return view('user.commande', ['user' => $user]);
     }
 
     /**

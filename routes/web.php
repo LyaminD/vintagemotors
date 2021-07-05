@@ -22,6 +22,12 @@ Route::get('/compte', [App\Http\Controllers\UserController::class, 'index'])->na
 Route::get('/editaccount', [App\Http\Controllers\UserController::class, 'edit'])->name('editaccount');
 Route::post('/editaccount', [App\Http\Controllers\UserController::class, 'update'])->name('updateaccount');
 
+/*------------------------ MODIFICATION DES ADRESSES DU COMPTE  ---------------------------- */
+Route::get('/adresse.edit', [App\Http\Controllers\AdresseController::class, 'edit'])->name('adresse.edit');
+Route::post('/adresse.update', [App\Http\Controllers\AdresseController::class, 'update'])->name('adresse.update');
+Route::post('/adresse.create', [App\Http\Controllers\AdresseController::class, 'create'])->name('adresse.create');
+Route::post('/adresse.delete', [App\Http\Controllers\AdresseController::class, 'delete'])->name('adresse.delete');
+
 /*------------------------ MODIFICATION DU MOT DE PASSE------------------------------------- */
 Route::get('/editpassword', [App\Http\Controllers\UserController::class, 'editpassword'])->name('editpassword');
 Route::post('/editpassword', [App\Http\Controllers\UserController::class, 'updatepassword'])->name('updatepassword');

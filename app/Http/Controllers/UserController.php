@@ -21,7 +21,6 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $user->load('commandes');
         return view('user.compte', ['user' => $user]);
     }
     public function user()
@@ -35,7 +34,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(array $data)
     {
         //
     }

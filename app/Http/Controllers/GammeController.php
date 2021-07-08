@@ -20,7 +20,7 @@ class GammeController extends Controller
     public function gamme()
     {
        $gammes=Gamme::all();
-       return view('admin.admingamme',compact('gammes'));
+       return view('admin.admingammes',compact('gammes'));
     }
 
     /**
@@ -41,7 +41,12 @@ class GammeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate( [
+            'nom' => ['required', 'string', 'max:20'],
+            ]);
+
+            Gamme::create($request->all());
+           return redirect()->route('admingammes')->with('message','Gamme ajouter en BDD');
     }
 
     /**
@@ -56,26 +61,19 @@ class GammeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Gamme $gamme)
     {
-        //
+        $request->validate( [
+            'nom' => ['required', 'string', 'max:100'],
+            ]);
+            $gamme->update($request->all());
+            return redirect()->view('admingammes', compact('gamme'))->with('message','Gamme modifiée avec succès');
     }
 
     /**
@@ -84,8 +82,9 @@ class GammeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Gamme $gamme)
     {
-        //
+        $gamme->delete();
+        return redirect()->route('admingammes')->with('message','Gamme supprimée avec succès');
     }
 }

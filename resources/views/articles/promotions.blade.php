@@ -4,8 +4,9 @@
 
 <h3>Découvrez toutes nos promos !</h3>
 @foreach ($promotions as $promotion)
-<h3>{{$promotion->nom}}</h3>
 <div class="container mydiv bg-white">
+<h3>{{$promotion->nom}}</h3>
+
     <h1>Du {{$promotion->date_debut}} au {{$promotion->date_fin}}</h1>
     <div class="row">
 

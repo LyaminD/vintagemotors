@@ -93,78 +93,132 @@
 </div>
 <!------------------------------- Choix adresse de livraison --------------------------------------------->
 <h3>Choisissez votre adresse de livraison</h3>
-
-<div class="row my-5">
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Adresse 1</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Validez cette adresse
-                    </label>
-                </div>
-            </div>
+<div class="row my-5 justify-content-center">
+    <div class="col-sm-4 justify-content-center text-center bg-white">
+        @if ((session('adresselivraison') !== null))
+        @php $adresselivraison = session('adresselivraison') @endphp
+        <div class="font-weight-bold pt-3 ">
+            <p>Adresse de livraison choisie :</p>
+            <p>{{$user->prenom}} {{$user->nom}}</p>
+            <p>{{$adresselivraison->adresse}}</p>
+            <p>{{$adresselivraison->code_postal}} {{$adresselivraison->ville}}</p>
         </div>
+        @else
+        <p class="mt-4">Aucune adresse choisie.</p>
+        @endif
     </div>
-    <div class="col-sm-6">
+</div>
+@foreach ($adresses as $adresse)
+<div class="row my-5 justify-content-center">
+    <div class="col-sm-4">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Adresse 2</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <h5 class="card-title text-center">Adresse</h5>
+                <div class="container">
+                    <div class="row justify-content-center ">
+                        <div class="col-md-8">
+                            <div class="card justify-content-center">
+                                <div class="card-header">{{ __('Adresse de livraison') }}</div>
+                                <div class="col-6">
+                                    <div for="inputAddress" class="form-label">{{$adresse->adresse}}</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputCity" class="form-label">{{$adresse->code_postal}}</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputState" class="form-label">{{$adresse->ville}}</label>
+                                </div>
+                                <input type="hidden" value="{{$adresse->id}}" name="adresse_id">
+                                <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
+                                <div class="col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form method="POST" action="{{ route('panier.show') }}">
+                @csrf
+                <div class="form-check text-center">
+                    <input class="form-check-input" type="checkbox" value="{{$adresse->id}}" id="flexCheckChecked" name="adresseid">
                     <label class="form-check-label" for="flexCheckChecked">
                         Validez cette adresse
                     </label>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+</div>
+</div>
+@endforeach
+
 <!------------------------------- Choix mode de livraison --------------------------------------------->
 <h3>Choisissez votre mode de livraison</h3>
+<div class="row my-5 justify-content-center">
+    <div class="col-sm-4 justify-content-center text-center bg-white">
+        @if ((session('modelivraison') !== null))
+        @php $modelivraison = session('modelivraison') @endphp
 
-<div class="row my-5">
+        <div class="font-weight-bold pt-3">
+            <p>{{$user->prenom}} {{$user->nom}}</p>
+            <p>mode de livraison choisi : {{$modelivraison}}</p>
+        </div>
+
+        @else
+        <p class="mt-4">Aucune adresse choisie.</p>
+        @endif
+    </div>
+</div>
+<div class="row my-5 justify-content-center">
     <div class="col-sm-6">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <h5 class="card-title">Mode de livraison en agence</h5>
                 <p class="card-text">Livraison en agence partout ou vous voulez en France.</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Validez le mode de livraison
-                    </label>
-                </div>
             </div>
+            <form method="POST" action="{{ route('panier.show') }}">
+                @csrf
+                <div class="form-check text-center">
+                    <input class="form-check-input" type="checkbox" value="agence" id="flexCheckChecked" name="modelivraison" @if(isset($modelivraison) && $modelivraison==='agence' )checked @endif>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Validez ce mode de livraison
+                    </label>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
+<div class="row my-5 justify-content-center">
     <div class="col-sm-6">
         <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Mode de livraison au domicile</h5>
+            <div class="card-body text-center">
+                <h5 class="card-title">Mode de livraison a domicile</h5>
                 <p class="card-text">Livraison a votre domicile.</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Validez le mode de livraison
-                    </label>
-                </div>
             </div>
+            <form method="POST" action="{{ route('panier.show') }}">
+                @csrf
+                <div class="form-check text-center">
+                    <input class="form-check-input" type="checkbox" value="domicile" id="flexCheckChecked" name="modelivraison" @if(isset($modelivraison) && $modelivraison==='domicile' )checked @endif>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Validez ce mode de livraison
+                    </label>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 <!------------------------------- Règlement + validation commande --------------------------------------------->
 <h3>Réglement de la commande</h3>
-<!--<div class="container bg-white">
+<div class="container w-25 bg-white text-center">
     <div class="page-header text-center">
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-4 col-md-offset-4">
+        <div class="row ">
+            <div class="col">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
@@ -173,7 +227,6 @@
                         </div>
                     </div>
                     <div class="panel-body">
-
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group"> <label>Numéro de carte</label>
@@ -195,21 +248,19 @@
                             </div>
                         </div>
                     </div>
-
-                   
+                    <form action="{{ route('commande.store')}}" method="post">
+                        @csrf
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-xs-12"><input type="hidden" name="prix" value="{{$total}}">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">Confirmer le paiement et la commande</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>-->
-<form action="{{ route('commande.store')}}" method="post">
-@csrf
-    <div class="panel-footer">
-        <div class="row">
-            <div class="col-xs-12"><input type="hidden" name="prix" value="{{$total}}"> 
-            <button type="submit" class="btn btn-success btn-lg btn-block">Confirmer le paiement et la commande</button>
-            </div>
-        </div>
-    </div>
-</form>
+</div>
 @endsection

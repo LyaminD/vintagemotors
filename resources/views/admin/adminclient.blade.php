@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <body>
     <div class="container mt-5">
         <div class="d-flex justify-content-center row">
@@ -13,6 +14,7 @@
                                     <th class="text-center">id_client</th>
                                     <th>Nom</th>
                                     <th>Prénom</th>
+                                    <th>Pseudo</th>
                                     <th>Email</th>
                                     <th>Options</th>
                                 </tr>
@@ -20,15 +22,17 @@
                             @foreach ($users as $user)
                             <tbody class="table-body">
                                 <tr class="cell-1" data-toggle="collapse" data-target="#demo">
-                                    <td class="text-center"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="text-center">{{$user->id}}</td>
+                                    <td>{{$user->nom}}</td>
+                                    <td>{{$user->prenom}}</td>
+                                    <td>{{$user->pseudo}}</td>
+                                    <td>{{$user->email}}</td>
                                     <th>
-                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                                            <label class="btn btn-outline-danger" for="btnradio3">Supprimer le client</label>
-                                        </div>
+                                        <form action="{{route('user.destroy',$user)}}" method="post">
+                                            @CSRF
+                                            @method('delete')
+                                            <input type="submit" value="Supprimer le client" class="btn btn-danger">
+                                        </form>
                                     </th>
                                 </tr>
                             </tbody>

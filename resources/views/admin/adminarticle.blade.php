@@ -52,20 +52,20 @@
                 @endif
                 <button class="btn-success">Envoyer</button>
             </div>
+            <div class="col">
+                <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-4 my-2">
+                            <input type="file" name="image" class="form-control">
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <button type="submit" class="btn btn-success">Upload</button>
+                        </div>
+                    </div>
+                </form>
         </form>
-        <div class="col">
-            <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-                    <div class="col-md-4 my-2">
-                        <input type="file" name="image" class="form-control">
-                    </div>
-                    <div class="col-md-4 my-2">
-                        <button type="submit" class="btn btn-success">Upload</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+    </div>
     </div>
     <!-------------------------------------------------------------LISTE ARTICLES---------------------------------------------------->
     <div class="container mt-5">
@@ -93,11 +93,18 @@
                                     <td>{{ $article->prix}} Euros</td>
                                     <td>{{ $article->stock}}</td>
                                     <th>
-                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                                            <a href="{{route('modifarticle',$article)}}"> <input type="button" value="Bouton"> </a>
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                                            <label class="btn btn-outline-danger" for="btnradio3">Supprimer l'article</label>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <form action="{{route('articles.edit',$article)}}" method="get">
+                                                @CSRF
+                                                <input type="submit" value="Modifier l'article" name="modifarticle" class="btn btn-warning">
+                                                <input type="hidden" value="modifier l'article" name="{{$article}}">
+                                            </form>
+                                            <form action="{{route('articles.destroy',$article)}}" method="post">
+                                                @CSRF
+                                                @method('delete')
+                                                <input type="submit" value="Supprimer l'article" name="modifarticle" class="btn btn-danger">
+                                                <input type="hidden" value="modifier l'article" name="{{$article}}">
+                                            </form>
                                         </div>
                                     </th>
                                 </tr>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adresse;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Repositories\PanierInterfaceRepository;
@@ -19,9 +21,22 @@ class PanierController extends Controller
     }
 
     # Affichage du panier
-    public function show()
-    {
-        return view("panier.show"); // resources\views\panier\show.blade.php
+    public function show(Request $request)
+    {   
+        if (($request->input('modelivraison')!= null)){                 
+        $modelivraison = $request->input('modelivraison');
+        session(['modelivraison'=>$modelivraison]);
+          }
+         if (($request->input('adresseid')!= null)){               
+        $adresseid = $request->input('adresseid');
+        $adresselivraison = Adresse::find($adresseid);
+        session(['adresselivraison'=>$adresselivraison]);
+          }
+        $id =  auth()->user()->id;
+        $adresses  = Adresse::where('user_id', $id)->get();
+        $user = auth()->user();
+        return view('panier.show', compact('adresses','user'));
+        
     }
 
     # Ajout d'un produit au panier

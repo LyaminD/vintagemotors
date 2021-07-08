@@ -17,7 +17,7 @@ class ArticleSeeder extends Seeder
     {
 
         DB::table('articles')->insert([
-            'nom' => 'Custom',
+            'nom' => 'Custom1',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'custom1.jpg',
@@ -28,7 +28,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Custom',
+            'nom' => 'Custom2',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'custom2.jpg',
@@ -39,7 +39,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Custom',
+            'nom' => 'Custom3',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'custom3.jpg',
@@ -51,7 +51,7 @@ class ArticleSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'nom' => 'BMW',
+            'nom' => 'BMW1',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto1bmw.jpg',
@@ -62,7 +62,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'BMW',
+            'nom' => 'BMW2',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto8bmw.jpg',
@@ -73,7 +73,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'BMW',
+            'nom' => 'BMW3',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto9bmw.jpg',
@@ -85,7 +85,7 @@ class ArticleSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'nom' => 'ratbike',
+            'nom' => 'ratbike1',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'ratbike1.jpg',
@@ -96,7 +96,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'ratebike',
+            'nom' => 'ratebike2',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'ratbike2.jpg',
@@ -107,7 +107,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'ratebike',
+            'nom' => 'ratebike3',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(50),
             'image' => 'ratbike3.jpg',
@@ -119,7 +119,7 @@ class ArticleSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'nom' => 'Cadillac',
+            'nom' => 'Cadillac1',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto4cadillac.jpg',
@@ -130,7 +130,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Cadillac',
+            'nom' => 'Cadillac2',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto6cadillac.jpg',
@@ -141,7 +141,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Cadillac',
+            'nom' => 'Cadillac3',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto7cadillac.jpg',
@@ -153,7 +153,7 @@ class ArticleSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'nom' => 'Harley',
+            'nom' => 'Harley1',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto3harley.jpg',
@@ -164,7 +164,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Harley',
+            'nom' => 'Harley2',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto2harley.jpg',
@@ -175,7 +175,7 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Harley',
+            'nom' => 'Harley3',
             'description' => Str::random(10),
             'description_detaillee' => Str::random(100),
             'image' => 'moto5harley.jpg',

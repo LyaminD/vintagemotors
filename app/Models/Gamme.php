@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Gamme extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+    ];
     public function articles()
     {
         return $this->hasMany(Article::class);

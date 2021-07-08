@@ -21,6 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user->load('adresses');
         return view('user.compte', ['user' => $user]);
     }
     public function user()
@@ -111,9 +112,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('adminclient')->with('message', 'Client supprimer avec succès');
     }
     
     public function updatepassword(Request $request)

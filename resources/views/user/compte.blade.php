@@ -5,6 +5,9 @@
 <div class="container">
     <div class="row justify-content-center ">
         <div class="col-md-8">
+        
+         @if(count($user->adresses) < 2) 
+        
         <form method="POST" action="{{ route('adresse.create') }}">
         @csrf
             <div class="card justify-content-center">
@@ -27,6 +30,7 @@
                 </div>
             </div>
             </form>
+            @endif
         </div>
     </div>
 </div>

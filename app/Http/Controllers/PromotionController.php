@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Promotion;
+use App\Models\Article;
 
 class PromotionController extends Controller
 {
@@ -14,13 +15,13 @@ class PromotionController extends Controller
      */
     public function index()
     {
-       $promotions=Promotion::with('articles')->get();
-       return view('articles.promotions',compact('promotions'));
+        $promotions = Promotion::with('articles')->get();
+        return view('articles.promotions', compact('promotions'));
     }
     public function promotion()
     {
-       $promotions=Promotion::all();
-       return view('admin.adminpromo',compact('promotions'));
+        $promotions = Promotion::all();
+        return view('admin.adminpromo', compact('promotions'));
     }
 
     /**
@@ -61,9 +62,12 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Promotion $promotion)
     {
-        //
+        $promotion->load('articles');
+        $articles = Article::all();
+
+        return view('admin.modifpromo', compact('promotion', 'articles'));
     }
 
     /**
@@ -73,9 +77,28 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Promotion $promotion)
     {
-        //
+        $request->validate([
+            'nom' => ['required', 'string', 'max:100'],
+            'reduction' => ['required', 'string', 'max:10'],
+            'date_debut' => ['required', 'string', 'max:20'],
+            'date_fin' => ['required', 'string', 'max:20'],
+        ]);
+
+        $promotion->update($request->all());
+
+        foreach ($promotion->articles as $article) {
+            $promotion->articles()->detach($article);
+        }
+
+        $articles = Article::all();
+        for ($i = 0; $i < count($articles); $i++) {
+            if (isset($request['article' . $i])) {
+                $promotion->articles()->attach([$request['article' . $i]]);
+            }
+        };
+        return redirect()->route('adminpromo')->with('message', 'Promotion modifiée avec succès');
     }
 
     /**
@@ -84,8 +107,9 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($promotion)
     {
-        //
+        $promotion->delete();
+        return redirect()->route('adminpromo')->with('message', 'Promotion supprimée avec succès');
     }
 }

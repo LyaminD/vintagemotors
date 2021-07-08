@@ -27,8 +27,8 @@ class AdresseController extends Controller
     {   
         $request->validate( [
             'adresse' => ['required', 'string', 'max:80'],
-            'code_postal' => ['required', 'string', 'max:5'],
             'ville' => ['required', 'string', 'max:50'],
+            'code_postal' => ['required', 'string', 'max:5'],
             ]);
 
             Adresse::create($request->all());
@@ -64,11 +64,11 @@ class AdresseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($user)
+    public function edit(User $user, Adresse $adresse)
     {
-        $user = Auth::user();
-        dd($user);
-        return view('user.editpassword', compact('user'));
+        $id =  auth()->user()->id;
+        $adresses  = Adresse::where('user_id', $id)->get();
+        return view('user.adresse', compact('adresses'));
     }
 
     /**
@@ -78,21 +78,17 @@ class AdresseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
-    {
+    public function update(Request $request)
+    {   
         $request->validate( [
             'adresse' => ['required', 'string', 'max:80'],
-            'code_postal' => ['required', 'string', 'max:5'],
             'ville' => ['required', 'string', 'max:50'],
+            'code_postal' => ['required', 'string', 'max:5'],
             ]);
+            $adresse_id = intval($request->input('adresse_id'));
+            $adresse = Adresse::find($adresse_id);
+            $adresse->update($request->all());
 
-        $user = Auth::user();
-            $user->adresse = $request->input('adresse');
-            $user->code_postal = $request->input('code_postal');
-            $user->ville = $request->input('ville');
-            $user->save();
-
-       
         return redirect()->route('compte')->with('message', 'Adresse modifiées !');
     }
 

@@ -43,15 +43,16 @@ Route::get('/classement', [App\Http\Controllers\ArticleController::class, 'class
 
 /*------------------------------------ GESTION DU PANIER ---------------------------------------- */
 Route::get('panier', [App\Http\Controllers\PanierController::class, 'show'])->name('panier.show');
-Route::post('panier/add/{article}',[App\Http\Controllers\PanierController::class, 'add'])->name('panier.add');
-Route::get('panier/remove/{article}',[App\Http\Controllers\PanierController::class, 'remove'])->name('panier.remove');
-Route::get('panier/empty',[App\Http\Controllers\PanierController::class, 'empty'])->name('panier.empty');
+Route::post('panier', [App\Http\Controllers\PanierController::class, 'show'])->name('panier.show');
+Route::post('panier/add/{article}', [App\Http\Controllers\PanierController::class, 'add'])->name('panier.add');
+Route::get('panier/remove/{article}', [App\Http\Controllers\PanierController::class, 'remove'])->name('panier.remove');
+Route::get('panier/empty', [App\Http\Controllers\PanierController::class, 'empty'])->name('panier.empty');
 
 /*------------------------------------ GESTION DES COMMANDES ---------------------------------------- */
-Route::resource('commande',App\Http\Controllers\CommandeController::class);
+Route::resource('commande', App\Http\Controllers\CommandeController::class);
 
 /*------------------------------------ AFFICHAGE DES PROMOTIONS ---------------------------------------- */
-Route::resource('promotion',App\Http\Controllers\PromotionController::class);
+Route::resource('promotion', App\Http\Controllers\PromotionController::class);
 
 
 /*------------------------ GESTION ACCEUIL PANNEAU ADMIN  ---------------------------- */
@@ -59,11 +60,12 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->na
 Route::get('/admin/article', [App\Http\Controllers\ArticleController::class, 'article'])->name('adminarticle');
 Route::get('/admin/promo', [App\Http\Controllers\PromotionController::class, 'promotion'])->name('adminpromo');
 Route::get('/admin/client', [App\Http\Controllers\UserController::class, 'user'])->name('adminclient');
-Route::get('/admin/gamme', [App\Http\Controllers\GammeController::class, 'gamme'])->name('admingamme');
+Route::get('/admin/gamme', [App\Http\Controllers\GammeController::class, 'gamme'])->name('admingammes');
+Route::delete('/user/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 
 /*------------------------ MODIFICATION DES ARTICLES  ---------------------------- */
 Route::get('/modifarticle', [App\Http\Controllers\ArticleController::class, 'edit'])->name('modifarticle');
 Route::post('/modifarticle', [App\Http\Controllers\ArticleController::class, 'update'])->name('updatearticle');
 
 /*--------------------------------------- UPLOAD IMAGES ---------------------------------------------- */
-Route::post('image-upload', [App\Http\Controllers\ImageUploadController::class, 'imageUploadPost' ])->name('image.upload.post');
+Route::post('image-upload', [App\Http\Controllers\ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');

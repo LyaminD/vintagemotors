@@ -73,14 +73,15 @@
                                 {{ Auth::user()->prenom }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right px-5 justify-content-center" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right px-5 justify-content-start" aria-labelledby="navbarDropdown">
 
                                 <a class="nav-link" href="{{ route('compte') }}">Mon compte</a>
-                                <a href="{{ route('editaccount') }}" class="mx-3 text-reset">Modifier mes informations</a>
+                                <a href="{{ route('editaccount') }}" class="mx-3 text-reset">Modifier mes informations</a><br>
                                 <a href="{{ route('adresse.edit') }}" class="mx-3 text-reset">Modifier mes adresses</a></br>
-                                <a href="{{ route('editpassword') }}" class="mx-3 text-reset"> Modifier le mot de passe</a>
+                                <a href="{{ route('editpassword') }}" class="mx-3 text-reset"> Modifier le mot de passe</a><br>
+                                <a href="{{ route('favoris.index') }}" class="mx-3 text-reset"> Mes favoris</a><br>
                                 <a class="nav-link" href="{{ route('panier.show') }}">Panier</a>
-                                <a class="nav-link" href="{{ route('commande.index') }}">Mes commandes</a>
+                                <a class="nav-link" href="{{ route('commande.index') }}">Mes commandes</a><br>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Se déconnecter') }}

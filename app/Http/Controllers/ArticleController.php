@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -14,25 +16,21 @@ class ArticleController extends Controller
      */
     public function index()
     {
-       $articles=Article::all();
-       return view('articles.articles',compact('articles'));
+        if (auth()->user()) {
+            $userId = auth()->user()->id;
+            $favorisIds = DB::table('favoris')->where('user_id', '=', $userId)->pluck('article_id');
+            $favorisIds = $favorisIds->toArray();
+        } else {
+            $favorisIds = null;
+        }
+        $articles = Article::all();
+        return view('articles.articles', compact('articles', 'favorisIds'));
     }
 
     public function article()
     {
-       $articles=Article::all();
-       return view('admin.adminarticle',compact('articles'));
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $articles = Article::all();
+        return view('admin.adminarticle', compact('articles'));
     }
 
     /**
@@ -43,7 +41,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate( [
+        $request->validate([
             'nom' => ['required', 'string', 'max:100'],
             'gamme_id' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:100'],
@@ -51,27 +49,35 @@ class ArticleController extends Controller
             'image' => ['required', 'string', 'max:255'],
             'prix' => ['required', 'string', 'max:255'],
             'stock' => ['required', 'string', 'max:255'],
-            
-            ]);
 
-  //      $article = new Article;
-   //         $article->nom = $request->input('nom');
-   //         $article->gamme_id = $request->input('gamme_id');
-    //        $article->description = $request->input('description');
-    //        $article->description_detaillee = $request->input('description_detaillee');
-    //        $article->image = $request->input('image');
-    //        $article->prix = $request->input('prix');
-    //        $article->stock = $request->input('stock');
-     //       $article->save(); 
-            Article::create($request->all());
+        ]);
 
-           return redirect()->route('admin')->with('message','Article ajouter en BDD');
+        //      $article = new Article;
+        //         $article->nom = $request->input('nom');
+        //         $article->gamme_id = $request->input('gamme_id');
+        //        $article->description = $request->input('description');
+        //        $article->description_detaillee = $request->input('description_detaillee');
+        //        $article->image = $request->input('image');
+        //        $article->prix = $request->input('prix');
+        //        $article->stock = $request->input('stock');
+        //       $article->save(); 
+        Article::create($request->all());
+
+        return redirect()->route('admin')->with('message', 'Article ajouter en BDD');
     }
 
     public function classement()
     {
-        $classement=Article::all()->sortByDesc('note');
-        return view('articles.classement',compact('classement'));
+        if (auth()->user()) {
+            $userId = auth()->user()->id;
+            $favorisIds = DB::table('favoris')->where('user_id', '=', $userId)->pluck('article_id');
+            $favorisIds = $favorisIds->toArray();
+        } else {
+            $favorisIds = null;
+        }
+        $articles = Article::all();
+        $classement = Article::all()->sortByDesc('note');
+        return view('articles.classement', compact('classement', 'favorisIds'));
     }
 
     /**
@@ -82,7 +88,14 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('articles.detail',compact('article'));
+        if (auth()->user()) {
+            $userId = auth()->user()->id;
+            $favorisIds = DB::table('favoris')->where('user_id', '=', $userId)->pluck('article_id');
+            $favorisIds = $favorisIds->toArray();
+        } else {
+            $favorisIds = null;
+        }
+        return view('articles.detail', compact('article', 'favorisIds'));
     }
 
     /**
@@ -105,7 +118,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $request->validate( [
+        $request->validate([
             'nom' => ['required', 'string', 'max:100'],
             'gamme_id' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:100'],
@@ -113,12 +126,12 @@ class ArticleController extends Controller
             'image' => ['required', 'string', 'max:255'],
             'prix' => ['required', 'string', 'max:255'],
             'stock' => ['required', 'string', 'max:255'],
-            
-            ]);
 
-            $article->update($request->all());
+        ]);
 
-            return redirect()->route('adminarticle')->with('message','Article modifier avec succès');
+        $article->update($request->all());
+
+        return redirect()->route('adminarticle')->with('message', 'Article modifier avec succès');
     }
 
     /**
@@ -130,6 +143,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('adminarticle')->with('message','Article supprimer avec succès');
+        return redirect()->route('adminarticle')->with('message', 'Article supprimer avec succès');
     }
 }

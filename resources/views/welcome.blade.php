@@ -25,10 +25,11 @@
     </div>
     <!----------------------------------------- PROMOTIONS ------------------------------------------------------------------>
     <h3>Découvrez nos promos en cours !</h3>
-    <h3>{{$promoActuel->nom}}</h3> <div class="container mydiv bg-white">
+    <h3>{{$promoActuel->nom}}</h3>
+    <div class="container mydiv bg-white">
         <div class="row">
-    @foreach ($promoActuel->articles as $article)
-   
+            @foreach ($promoActuel->articles as $article)
+
             <div class="col-md-4">
                 <!-- bbb_deals -->
                 <div class="bbb_deals">
@@ -54,16 +55,32 @@
                                 </div>
                                 <button type="button" class="btn btn-primary btn-sm">Achetez</button>
                                 <button type="button" class="btn btn-secondary btn-sm">Plus de détails</button>
+                                @if(auth()->user()!== null)
+                                @if(in_array($article->id,$favorisIds))
+                                <form action="{{route('favoris.destroy',$article)}}" method="post">
+                                    @CSRF
+                                    @method('delete')
+                                    <input type="hidden" value="{{$article->id}}" name="article_id">
+                                    <input type="submit" value="retirer des favoris" class="btn btn-danger mb-2 mt-2">
+                                </form>
+                                @else
+                                <form action="{{route('favoris.store',$article)}}" method="post">
+                                    @CSRF
+                                    <input type="hidden" value="{{$article->id}}" name="article_id">
+                                    <input type="submit" value="ajouter aux favoris" class="btn btn-primary mb-2 mt-2">
+                                </form>
+                                @endif
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-     
-    @endforeach 
-      </div>
+
+            @endforeach
+        </div>
     </div>
-<!----------------------------------------- CAROUSEL ------------------------------------------------------------------>
+    <!----------------------------------------- CAROUSEL ------------------------------------------------------------------>
     <div>
         <h3>Showroom de nos plus belles motos !</h3>
         <div class="container carousel">
@@ -96,7 +113,7 @@
             </div>
         </div>
     </div>
-<!----------------------------------------- LES MIEUX NOTEES ------------------------------------------------------------------>
+    <!----------------------------------------- LES MIEUX NOTEES ------------------------------------------------------------------>
     <div>
         <h3>Les motos les mieux notées !</h3>
         <div class="card">
@@ -111,5 +128,6 @@
         </div>
     </div>
 </body>
+
 </html>
 @endsection

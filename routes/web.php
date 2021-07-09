@@ -69,3 +69,6 @@ Route::post('/modifarticle', [App\Http\Controllers\ArticleController::class, 'up
 
 /*--------------------------------------- UPLOAD IMAGES ---------------------------------------------- */
 Route::post('image-upload', [App\Http\Controllers\ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');
+
+/*------------------------ GESTION DES FAVORIS  ---------------------------- */
+Route::resource('favoris', App\Http\Controllers\FavoriController::class);

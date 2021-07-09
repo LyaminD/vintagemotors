@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Promotion;
 use App\Models\Article;
+use Illuminate\Support\Facades\DB;
 
 class PromotionController extends Controller
 {
@@ -15,45 +16,20 @@ class PromotionController extends Controller
      */
     public function index()
     {
+        if (auth()->user()) {
+            $userId = auth()->user()->id;
+            $favorisIds = DB::table('favoris')->where('user_id', '=', $userId)->pluck('article_id');
+            $favorisIds = $favorisIds->toArray();
+        } else {
+            $favorisIds = null;
+        }
         $promotions = Promotion::with('articles')->get();
-        return view('articles.promotions', compact('promotions'));
+        return view('articles.promotions', compact('promotions','favorisIds'));
     }
     public function promotion()
     {
         $promotions = Promotion::all();
         return view('admin.adminpromo', compact('promotions'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

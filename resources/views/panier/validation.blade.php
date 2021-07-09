@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container"  >
+<div class="container bg-white">
     <div class="">
         <div class="">
             <div class="">
@@ -18,7 +18,7 @@
                 <p>Merci pour votre achat et à bientôt !</p>
             </div>
             <div class="">
-             <a href="{{route('panier.empty')}}"class="btn btn-primary">Retour sur mon compte</a>    
+                <a href="{{route('panier.empty')}}" class="btn btn-primary">Retour sur mon compte</a>
             </div>
         </div>
     </div>

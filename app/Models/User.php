@@ -52,18 +52,15 @@ class User extends Authenticatable
     }
     public function favoris()
     {
-        return $this->belongsToMany(Favori::class);
-        
+        return $this->belongsToMany(Article::class,'favoris');
     }
     public function adresses()
     {
-        return $this->hasMany(Adresse::class);
-        
+        return $this->hasMany(Adresse::class); 
     }
     public function avis()
     {
-        return $this->hasMany(Avi::class);
-        
+        return $this->hasMany(Avi::class);    
     }
     public function isAdmin()
     {   

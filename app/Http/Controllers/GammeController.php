@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Gamme;
+use Illuminate\Support\Facades\DB;
 
 class GammeController extends Controller
 {
@@ -13,9 +14,16 @@ class GammeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        if (auth()->user()) {
+            $userId = auth()->user()->id;
+            $favorisIds = DB::table('favoris')->where('user_id', '=', $userId)->pluck('article_id');
+            $favorisIds = $favorisIds->toArray();
+        } else {
+            $favorisIds = null;
+        }
         $gammes=Gamme::with('articles')->get();
-        return view('articles.gammes',compact('gammes'));
+        return view('articles.gammes',compact('gammes','favorisIds'));
     }
     public function gamme()
     {

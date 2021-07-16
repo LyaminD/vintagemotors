@@ -1,5 +1,4 @@
 //------------------------------------------------------------IMAGE DE FOND---------------------------------------------------------------
-
 body{
     background-image:url(/images/backgroundimage.jpg) !important;
 }
@@ -9,7 +8,6 @@ footer{
 }
 
 //------------------------------------------------------------EFFET NEON---------------------------------------------------------------
-
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 
 h3 {
@@ -69,13 +67,11 @@ h3 {
 }
 
 //------------------------------------------------------------LOGO-------------------------------------------------------------------
-
 .logo{
     width: 3vw;
 }
 
 //------------------------------------------------------------CAROUSEL---------------------------------------------------------------
-
 .carousel {
     margin-top: 100px;
     margin-bottom: 100px
@@ -111,6 +107,7 @@ h3 {
 .carousel-item img {
     width: 80%
 }
+
 //----------------------------------------------INFO PAIEMENTS----------------------------------------------
 .inlineimage {
   max-width: 470px;
@@ -129,7 +126,6 @@ h3 {
 }
 
 //----------------------------------------------PROMOTIONS----------------------------------------------
-
 .mydiv {
   margin-top: 50px;
   margin-bottom: 50px
@@ -334,8 +330,8 @@ div {
       font-size: 20px
   }
 }
-//----------------------------------------------ARTICLES ADMIN----------------------------------------------
 
+//----------------------------------------------ARTICLES ADMIN----------------------------------------------
 .cell-1 {
   border-collapse: separate;
   border-spacing: 0 4em;
@@ -410,4 +406,156 @@ thead {
 a {
     text-decoration: none !important
 }
-//---------------------------------------------- ADMIN----------------------------------------------
+
+//---------------------------------------------- CONTACT----------------------------------------------
+#contactus {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)
+}
+
+#contactus h3 {
+  display: block;
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 10px
+}
+
+#contactus h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%
+}
+
+#contactus input[type="text"],
+#contactus input[type="email"],
+#contactus input[type="tel"],
+#contactus input[type="url"],
+#contactus textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px
+}
+
+#contactus input[type="text"]:hover,
+#contactus input[type="email"]:hover,
+#contactus input[type="tel"]:hover,
+#contactus input[type="url"]:hover,
+#contactus textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa
+}
+
+#contactus textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none
+}
+
+#contactus button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #f0715f;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px
+}
+
+#contactus button[type="submit"]:hover {
+  background: #f07150;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out
+}
+
+#contactus button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5)
+}
+
+#contactus input:focus,
+#contactus textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa
+}
+
+::-webkit-input-placeholder {
+  color: #888
+}
+
+:-moz-placeholder {
+  color: #888
+}
+
+::-moz-placeholder {
+  color: #888
+}
+
+:-ms-input-placeholder {
+  color: #888
+}
+
+div.stars {
+  width: 270px;
+  display: inline-block
+}
+
+.mt-200 {
+  margin-top: 200px
+}
+//---------------------------------------------- NOTE----------------------------------------------
+input.star {
+  display: none
+}
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #4A148C;
+  transition: all .2s
+}
+
+input.star:checked~label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s
+}
+
+input.star-5:checked~label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952
+}
+
+input.star-1:checked~label.star:before {
+  color: #F62
+}
+
+label.star:hover {
+  transform: rotate(-15deg) scale(1.3)
+}
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome
+}
+
+#sectionAvis{
+  display: none;
+}

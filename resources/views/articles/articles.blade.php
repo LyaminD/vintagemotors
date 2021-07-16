@@ -23,7 +23,7 @@
                     @if(auth()->user()!== null)
                     @if(in_array($article->id,$favorisIds))
                     <form action="{{route('favoris.destroy',$article)}}" method="post">
-                        @CSRF
+                        @CSRF   
                         @method('delete')
                         <input type="hidden" value="{{$article->id}}" name="article_id">
                         <input type="submit" value="retirer des favoris" class="btn btn-danger mb-2 mt-2">
@@ -37,6 +37,7 @@
                     @endif
                     @endif
                 </div>
+                
             </div>
         </div>
         @endforeach

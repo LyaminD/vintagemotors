@@ -52,15 +52,15 @@ class ArticleController extends Controller
 
         ]);
 
-        //      $article = new Article;
-        //         $article->nom = $request->input('nom');
-        //         $article->gamme_id = $request->input('gamme_id');
+        //        $article = new Article;
+        //        $article->nom = $request->input('nom');
+        //        $article->gamme_id = $request->input('gamme_id');
         //        $article->description = $request->input('description');
         //        $article->description_detaillee = $request->input('description_detaillee');
         //        $article->image = $request->input('image');
         //        $article->prix = $request->input('prix');
         //        $article->stock = $request->input('stock');
-        //       $article->save(); 
+        //        $article->save(); 
         Article::create($request->all());
 
         return redirect()->route('admin')->with('message', 'Article ajouter en BDD');
@@ -95,6 +95,8 @@ class ArticleController extends Controller
         } else {
             $favorisIds = null;
         }
+
+        $article->load('avis.user');
         return view('articles.detail', compact('article', 'favorisIds'));
     }
 

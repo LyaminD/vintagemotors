@@ -19,7 +19,7 @@ class CreateFavorisTable extends Migration
 
             $table->primary(['user_id', 'article_id']);
 
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('article_id')->constrained();
         });
     }

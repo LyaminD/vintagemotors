@@ -6,7 +6,6 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Models\Commande;
 use App\Models\Article;
-use App\Models\User;
 
 class CommandeController extends Controller
 {

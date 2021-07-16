@@ -20,7 +20,7 @@ class CreateAvisTable extends Migration
             $table->timestamps();
             $table->engine = 'InnoDB';
 
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('article_id')->constrained();
         });
     }

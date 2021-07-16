@@ -2,57 +2,57 @@
 
 @section('content')
 
-<body>
-    <div>
-        <form method="POST" action="{{ route('articles.store') }}" class="bg-white">
-            @csrf
-            <div class="form-group row">
-                <label for="nom" class="col-md-4 col-form-label text-md-right">Nom de l'article</label>
-                <div class="col-md-6">
-                    <input id="nom" type="text" class="form-control " name="nom" required autocomplete="nom" autofocus>
+<body> 
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form method="POST" action="{{ route('articles.store') }}" class="bg-white">
+                @csrf
+                <div class="form-group row">
+                    <label for="nom" class="col-md-4 col-form-label text-md-right">Nom de l'article</label>
+                    <div class="col-md-6">
+                        <input id="nom" type="text" class="form-control " name="nom" required autocomplete="nom" autofocus>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="gamme_id" class="col-md-4 col-form-label text-md-right">gamme_id</label>
-                <div class="col-md-6">
-                    <input id="gamme_id" type="text" class="form-control " name="gamme_id" required autocomplete="gamme_id" autofocus>
+                <div class="form-group row">
+                    <label for="gamme_id" class="col-md-4 col-form-label text-md-right">gamme_id</label>
+                    <div class="col-md-6">
+                        <input id="gamme_id" type="text" class="form-control " name="gamme_id" required autocomplete="gamme_id" autofocus>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="description" class="col-md-4 col-form-label text-md-right">description</label>
-                <div class="col-md-6">
-                    <input id="description" type="description" class="form-control " name="description" required autocomplete="description">
+                <div class="form-group row">
+                    <label for="description" class="col-md-4 col-form-label text-md-right">description</label>
+                    <div class="col-md-6">
+                        <input id="description" type="description" class="form-control " name="description" required autocomplete="description">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="description_detaillee" class="col-md-4 col-form-label text-md-right">description_detaillee</label>
-                <div class="col-md-6">
-                    <input id="description_detaillee" type="description_detaillee" class="form-control " name="description_detaillee">
+                <div class="form-group row">
+                    <label for="description_detaillee" class="col-md-4 col-form-label text-md-right">description_detaillee</label>
+                    <div class="col-md-6">
+                        <input id="description_detaillee" type="description_detaillee" class="form-control " name="description_detaillee">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="prix" class="col-md-4 col-form-label text-md-right">prix</label>
-                <div class="col-md-6">
-                    <input id="prix" type="prix" class="form-control " name="prix" required autocomplete="prix">
+                <div class="form-group row">
+                    <label for="prix" class="col-md-4 col-form-label text-md-right">prix</label>
+                    <div class="col-md-6">
+                        <input id="prix" type="prix" class="form-control " name="prix" required autocomplete="prix">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="stock" class="col-md-4 col-form-label text-md-right">stock</label>
-                <div class="col-md-6">
-                    <input id="stock" type="stock" class="form-control " name="stock" required autocomplete="stock">
+                <div class="form-group row">
+                    <label for="stock" class="col-md-4 col-form-label text-md-right">stock</label>
+                    <div class="col-md-6">
+                        <input id="stock" type="stock" class="form-control " name="stock" required autocomplete="stock">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="image" class="col-md-4 col-form-label text-md-right"></label>
-                <h2>Joindre une image</h2>
-                @if(Session::get('image'))
-                <input type="text" class="form-control" name="image" id="image" value="{{session::get('image')}}">
-                @else
-                <input type="text" name="image" id="image" class="form-control my-2" placeholder="Upload d'images ci-dessous">
-                @endif
-                <button class="btn-success">Envoyer</button>
-            </div>
-            <div class="col">
+                <div class="form-group row">
+                    <label for="image" class="col-4 col-form-label text-md-right"></label>
+                    <h2>Joindre une image</h2>
+                    @if(Session::get('image'))
+                    <input type="text" class="form-control" name="image" id="image" value="{{session::get('image')}}">
+                    @else
+                    <input type="text" name="image" id="image" class="form-control my-2" placeholder="Upload d'images ci-dessous">
+                    @endif
+                    <button class="btn-success">Envoyer</button>
+                </div>
                 <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -64,8 +64,8 @@
                         </div>
                     </div>
                 </form>
-        </form>
-    </div>
+            </form>
+        </div>
     </div>
     <!-------------------------------------------------------------LISTE ARTICLES---------------------------------------------------->
     <div class="container mt-5">

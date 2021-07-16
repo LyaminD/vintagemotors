@@ -41,6 +41,7 @@
                         <a class="nav-link" href="{{ route('gammes.index') }}">Gammes</a>
                         <a class="nav-link" href="{{ route('promotion.index') }}">Promotions</a>
                         <a class="nav-link" href="{{ route('articles.classement')}}"> Classement des mieux notées</a>
+                        <a class="nav-link" href="{{ route('notrehistoire.index') }}">Notre histoire</a>
                         <a class="nav-link" href="{{ route('admin')}}">Administration</a>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre></a>

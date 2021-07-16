@@ -72,3 +72,9 @@ Route::post('image-upload', [App\Http\Controllers\ImageUploadController::class, 
 
 /*------------------------ GESTION DES FAVORIS  ---------------------------- */
 Route::resource('favoris', App\Http\Controllers\FavoriController::class);
+
+/*------------------------ Notre HISTOIRE  ---------------------------- */
+Route::resource('notrehistoire', App\Http\Controllers\NotrehistoireController::class);
+
+/*------------------------------------ GESTION DES AVIS / NOTES ---------------------------------------- */
+Route::resource('avis', App\Http\Controllers\AvisController::class);

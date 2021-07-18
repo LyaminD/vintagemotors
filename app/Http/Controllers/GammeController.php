@@ -47,7 +47,6 @@ class GammeController extends Controller
            return redirect()->route('admingammes')->with('message','Gamme ajouter en BDD');
     }
 
-
     /**
      * Update the specified resource in storage.
      *
@@ -61,7 +60,7 @@ class GammeController extends Controller
             'nom' => ['required', 'string', 'max:100'],
             ]);
             $gamme->update($request->all());
-            return redirect()->view('admingammes', compact('gamme'))->with('message','Gamme modifiée avec succès');
+            return redirect()->route('admingammes')->with('message','Gamme modifiée avec succès');
     }
 
     /**

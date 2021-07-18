@@ -17,8 +17,8 @@ class ArticleSeeder extends Seeder
     {
 
         DB::table('articles')->insert([
-            'nom' => 'Custom1',
-            'description' => Str::random(10),
+            'nom' => 'Fireblade',
+            'description' => 'En mettre plein la vue !',
             'description_detaillee' => Str::random(100),
             'image' => 'custom1.jpg',
             'gamme_id' => 3,
@@ -28,8 +28,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Custom2',
-            'description' => Str::random(10),
+            'nom' => 'Stomper',
+            'description' => 'Vous laisserez qu\'un nuage de fumée !',
             'description_detaillee' => Str::random(100),
             'image' => 'custom2.jpg',
             'gamme_id' => 3,
@@ -39,8 +39,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Custom3',
-            'description' => Str::random(10),
+            'nom' => 'Defcon',
+            'description' => 'Tous le monde va se retourner !',
             'description_detaillee' => Str::random(100),
             'image' => 'custom3.jpg',
             'gamme_id' => 3,
@@ -51,8 +51,8 @@ class ArticleSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'nom' => 'BMW1',
-            'description' => Str::random(10),
+            'nom' => 'Choom',
+            'description' => 'La classe à l\'état pure !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto1bmw.jpg',
             'gamme_id' => 1,
@@ -62,8 +62,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'BMW2',
-            'description' => Str::random(10),
+            'nom' => 'Nova',
+            'description' => 'Ne vous laissera pas indifférent !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto8bmw.jpg',
             'gamme_id' => 1,
@@ -73,8 +73,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'BMW3',
-            'description' => Str::random(10),
+            'nom' => 'F900',
+            'description' => 'Un chef d\'oeuvre !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto9bmw.jpg',
             'gamme_id' => 1,
@@ -85,8 +85,8 @@ class ArticleSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'nom' => 'ratbike1',
-            'description' => Str::random(10),
+            'nom' => 'Nagasaki',
+            'description' => 'Une vraie bombe !',
             'description_detaillee' => Str::random(100),
             'image' => 'ratbike1.jpg',
             'gamme_id' => 5,
@@ -96,8 +96,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'ratebike2',
-            'description' => Str::random(10),
+            'nom' => 'Tcherno',
+            'description' => 'Terminator mais en mieux !',
             'description_detaillee' => Str::random(100),
             'image' => 'ratbike2.jpg',
             'gamme_id' => 5,
@@ -107,8 +107,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'ratebike3',
-            'description' => Str::random(10),
+            'nom' => 'Alpha',
+            'description' => 'Du steampunk de rêve !',
             'description_detaillee' => Str::random(50),
             'image' => 'ratbike3.jpg',
             'gamme_id' => 5,
@@ -119,8 +119,8 @@ class ArticleSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'nom' => 'Cadillac1',
-            'description' => Str::random(10),
+            'nom' => 'Transalp',
+            'description' => 'En mettre plein la vue !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto4cadillac.jpg',
             'gamme_id' => 2,
@@ -130,8 +130,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Cadillac2',
-            'description' => Str::random(10),
+            'nom' => 'Dream',
+            'description' => 'Puissance et sobriété !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto6cadillac.jpg',
             'gamme_id' => 2,
@@ -141,8 +141,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Cadillac3',
-            'description' => Str::random(10),
+            'nom' => 'CRF',
+            'description' => 'Légendaire !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto7cadillac.jpg',
             'gamme_id' => 2,
@@ -153,8 +153,8 @@ class ArticleSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'nom' => 'Harley1',
-            'description' => Str::random(10),
+            'nom' => 'FatBoy',
+            'description' => 'Un clasique revisité !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto3harley.jpg',
             'gamme_id' => 4,
@@ -164,8 +164,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Harley2',
-            'description' => Str::random(10),
+            'nom' => 'Wing',
+            'description' => 'Une légende urbaine !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto2harley.jpg',
             'gamme_id' => 4,
@@ -175,8 +175,8 @@ class ArticleSeeder extends Seeder
 
         ]);
         DB::table('articles')->insert([
-            'nom' => 'Harley3',
-            'description' => Str::random(10),
+            'nom' => 'Iron',
+            'description' => 'Le rêve de tous humains !',
             'description_detaillee' => Str::random(100),
             'image' => 'moto5harley.jpg',
             'gamme_id' => 4,

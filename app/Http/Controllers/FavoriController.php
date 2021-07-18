@@ -26,7 +26,7 @@ class FavoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Article $article)
+    public function store(Request $request)
     {   
        
             $user= User::find(auth()->user()->id) ;
@@ -41,7 +41,7 @@ class FavoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Article $article)
+    public function destroy(Request $request)
     {
         $user= User::find(auth()->user()->id) ;
         $user->favoris()->detach($request->input('article_id'));

@@ -42,6 +42,7 @@
                         <a class="nav-link" href="{{ route('promotion.index') }}">Promotions</a>
                         <a class="nav-link" href="{{ route('articles.classement')}}"> Classement des mieux notées</a>
                         <a class="nav-link" href="{{ route('notrehistoire.index') }}">Notre histoire</a>
+                       
                         <a class="nav-link" href="{{ route('admin')}}">Administration</a>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre></a>
@@ -118,7 +119,8 @@
         </main>
     </div>
 </body>
-<footer class="bg-light text-center text-lg-start mt-5">
+<footer class="bg-light text-center text-lg-start">
+    <div></div>
     <div class="text-center p-3" style="background-color: white;">
         <h6 class="text-dark">© 2021 Copyright: VintageMotors By DIAFAT Lyamin</h6>
         <ul>

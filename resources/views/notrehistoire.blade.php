@@ -16,9 +16,9 @@
             <img src="{{ asset("images/lol.jpg") }}" class="img-thumbnail">
         </div>
 
-
     </div>
     <h3>Qualité de fabrication</h3>
+
     <div class="row">
         <div class="col text-center text-white">
             <p>Toutes nos motos sont façonnées dans notre atelier à la main, selon un cahier des charges bien particulier, et réspectant les règles environementales !</p>
@@ -27,20 +27,23 @@
         </div>
     </div>
 
-
+    <div class="row text-center">
+        <div class="col my-5">
+            <img src="{{ asset("images/atelier1.jpg") }}" class="w-50 my-5">
+            <img src="{{ asset("images/atelier.jpg") }}" class="w-50 my-5">
+        </div>
+    </div>
 
     <div class="container">
-    <form id="contactus" action="" method="post">
-        <h3>Contactez-nous !</h3>
-        <fieldset> <input placeholder="Nom" type="text" tabindex="1" required autofocus> </fieldset>
-        <fieldset> <input placeholder="Adresse mail" type="email" tabindex="2" required> </fieldset>
-        <fieldset> <input placeholder="Numero de téléphone" type="tel" tabindex="3" required> </fieldset>
-        <fieldset> <textarea placeholder="Entrez votre méssage . . ." tabindex="5" required></textarea> </fieldset>
-        <fieldset> <button name="submit" type="submit" id="contactus-submit" data-submit="...Sending">Envoyer</button> </fieldset>
-    </form>
-</div>
-
-
+        <form id="contactus" action="" method="post">
+            <h3>Contactez-nous !</h3>
+            <fieldset> <input placeholder="Nom" type="text" tabindex="1" required autofocus> </fieldset>
+            <fieldset> <input placeholder="Adresse mail" type="email" tabindex="2" required> </fieldset>
+            <fieldset> <input placeholder="Numero de téléphone" type="tel" tabindex="3" required> </fieldset>
+            <fieldset> <textarea placeholder="Entrez votre méssage . . ." tabindex="5" required></textarea> </fieldset>
+            <fieldset> <button name="submit" type="submit" id="contactus-submit" data-submit="...Sending">Envoyer</button> </fieldset>
+        </form>
+    </div>
 
 </body>
 @endsection

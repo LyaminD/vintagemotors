@@ -9,7 +9,7 @@
     <h3>{{ $gamme->nom}}</h3>
     <div class="d-flex flex-row bd-highlight mb-3 justify-content-around">
         @foreach ($gamme->articles as $article)
-        <div class="card my-5 " style="width: 18rem;">
+        <div class="card my-5 " style="width: 30rem;">
             <img src="{{ asset("images/$article->image") }}" class="card-img-top" alt="moto">
             <div class="card-body">
                 <h5 class="card-title"> {{ $article->nom}}</h5>

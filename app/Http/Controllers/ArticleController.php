@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -18,7 +17,7 @@ class ArticleController extends Controller
     {
         if (auth()->user()) {
             $userId = auth()->user()->id;
-            $favorisIds = DB::table('favoris')->where('user_id', '=', $userId)->pluck('article_id');
+            $favorisIds = DB::table('favoris')->where('user_id', $userId)->pluck('article_id');
             $favorisIds = $favorisIds->toArray();
         } else {
             $favorisIds = null;

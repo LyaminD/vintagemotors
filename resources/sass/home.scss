@@ -1,10 +1,19 @@
 //------------------------------------------------------------IMAGE DE FOND---------------------------------------------------------------
 body{
+    position: relative;
+    display: block;
+    min-height: 100vh;
+    margin-bottom: -50px;
     background-image:url(/images/backgroundimage.jpg) !important;
 }
 
-footer{
-    margin-bottom: -200px;
+footer, body:after{
+    position: static;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    margin-bottom: 0px;
 }
 
 //------------------------------------------------------------EFFET NEON---------------------------------------------------------------

@@ -6,7 +6,7 @@
     <div class="row">
         @foreach ($classement as $article)
         <div class="col-4">
-            <div class="card my-5" style="width: 18rem;">
+            <div class="card my-5" style="width: 30rem;">
                 <img src="{{ asset("images/$article->image") }}" class="card-img-top" alt="moto">
                 <div class="card-body">
                     <h5 class="card-title"> {{ $article->nom}}</h5>

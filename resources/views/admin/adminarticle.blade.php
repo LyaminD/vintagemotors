@@ -47,7 +47,7 @@
                     <label for="image" class="col-4 col-form-label text-md-right"></label>
                     <h2>Joindre une image</h2>
                     @if(Session::get('image'))
-                    <input type="text" class="form-control" name="image" id="image" value="{{session::get('image')}}">
+                    <input type="text" class="form-control" name="image" id="image" value="{{Session::get('image')}}">
                     @else
                     <input type="text" name="image" id="image" class="form-control my-2" placeholder="Upload d'images ci-dessous">
                     @endif

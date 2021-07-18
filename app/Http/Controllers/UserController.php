@@ -18,6 +18,11 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+  //  public function isAdmin()
+  //  {
+  //      return false;
+  //  }
+
     public function index()
     {
         $user = Auth::user();

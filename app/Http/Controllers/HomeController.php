@@ -9,16 +9,6 @@ use App\Models\Article;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -42,23 +32,8 @@ class HomeController extends Controller
         ->get();
 
         $promoActuel = $promoActuel[0];
-
-        
-        return view('welcome',compact('promoActuel', 'favorisIds'));
-    }
-
-    public function classement()
-    {
-        if (auth()->user()) {
-            $userId = auth()->user()->id;
-            $favorisIds = DB::table('favoris')->where('user_id', '=', $userId)->pluck('article_id');
-            $favorisIds = $favorisIds->toArray();
-        } else {
-            $favorisIds = null;
-        }
-
-        $articles = Article::all();
         $classement = Article::all()->sortByDesc('note')->take(3);
-        return view('welcome', compact('classement', 'favorisIds'));
+        
+        return view('welcome',compact('promoActuel', 'favorisIds', 'classement'));
     }
 }

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,4 +17,6 @@ class AdminController extends Controller
     {
         return view('admin.admin');
     }
+    
+    
 }

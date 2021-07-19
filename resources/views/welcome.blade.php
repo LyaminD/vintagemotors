@@ -114,11 +114,12 @@
         </div>
     </div>
     <!----------------------------------------- LES MIEUX NOTEES ------------------------------------------------------------------>
-  <!--  <div>
+    <div>
         <h3>Les motos les mieux notées !</h3>
-        <div class="row">
+        <div class="row justify-content-center">
         @foreach ($classement as $article)
         <div class="col-3">
+        #{{$loop->iteration}}
             <div class="card my-5" style="width: 18rem; ">
                 <img src="{{ asset("images/$article->image") }}" class="card-img-top" alt="moto">
                 <div class="card-body">
@@ -148,7 +149,7 @@
         </div>
         @endforeach
     </div>
-    </div>-->
+    </div>
 </body>
 
 </html>

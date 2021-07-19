@@ -42,7 +42,7 @@
                         <a class="nav-link" href="{{ route('promotion.index') }}">Promotions</a>
                         <a class="nav-link" href="{{ route('articles.classement')}}"> Classement des mieux notées</a>
                         <a class="nav-link" href="{{ route('notrehistoire.index') }}">Notre histoire</a>
-                       
+                       @if (auth()->user() && auth()->user()->role_id == 2)
                         <a class="nav-link" href="{{ route('admin')}}">Administration</a>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre></a>
@@ -53,6 +53,7 @@
                                 <a href="{{ route('adminclient') }}" class="mx-3 text-reset">Gestion des clients</a>
                             </div>
                         </li>
+                        @endif
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

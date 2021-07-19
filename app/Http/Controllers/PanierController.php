@@ -18,6 +18,7 @@ class PanierController extends Controller
     public function __construct(PanierInterfaceRepository $panierRepository)
     {
         $this->panierRepository = $panierRepository;
+        $this->middleware('auth');
     }
 
     # Affichage du panier

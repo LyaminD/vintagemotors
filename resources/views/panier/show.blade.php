@@ -6,7 +6,7 @@
     <div class="alert alert-info">{{ session('message') }}</div>
     @endif
     <!------------------------------- Affichage et modification du panier --------------------------------------------->
-    @if (session()->has("panier"))
+    @if (session()->has("panier") && count(session("panier"))>0)
     <h3>Mon panier</h3>
     <div class="table-responsive shadow mb-3">
         <table class="table table-bordered table-hover bg-white mb-0">
@@ -252,7 +252,10 @@
                         @csrf
                         <div class="panel-footer">
                             <div class="row">
-                                <div class="col-xs-12"><input type="hidden" name="prix" value="{{$total}}">
+                                <div class="col-xs-12"><input type="hidden" name="prix" 
+                                @if( isset ($total)) 
+                                value="{{$total}}" )
+                                @endif>
                                     <button type="submit" class="btn btn-success btn-lg btn-block">Confirmer le paiement et la commande</button>
                                 </div>
                             </div>
